@@ -1,0 +1,37 @@
+#include <vector>
+#include <complex>
+using namespace std;
+typedef complex<double> dcomp;
+extern int n,p,groundstatenum,*flag;
+extern double *h_x,*h_y,*h_z,*J_x,*J_y,*J_z,*h1_x,*K_x;
+extern dcomp iota;
+void Print(vector<complex<double> >& psi);
+double Norm (vector<complex<double> >& psi, char r);
+void Initialise(vector<complex<double> > &psi,int seed);
+void Hamil_Z(vector<complex<double> >& psi,double s);
+int X_(vector<complex<double> >& psi);
+int X(vector<complex<double> >& psi);
+int Y(vector<complex<double> >& psi);
+int Y_(vector<complex<double> >& psi);
+void Hamil_X(vector<complex<double> >& psi,double s);
+void Hamil_Y(vector<complex<double> >& psi,double s);
+void Product_Single(vector<complex<double> >& psi, double dt,double s);
+void Product_Z(vector<complex<double> >& psi1,double dt,double s);
+void Product_H_X(vector<complex<double> >& psi, double dt,double s);
+void Product_H_Y(vector<complex<double> >& psi, double dt,double s);
+void inst_overlap(int num_ev, vector<complex<double> > psi3, vector<complex<double> > Eigenvect );
+void successprob(vector<complex<double> > psi3);
+void Hamil(vector<complex<double> >psi,vector<complex<double> >&psi2,double s);
+void StandardDeviation(vector<complex<double> > Eigenvect,double s, int num_ev);
+void Egev(int obtained_k, vector<double> diag, vector<double> subdiag,vector<complex<double> > Z,vector<double>& eigenvalue);
+void Egvector(int obtained_k, int numv_ev, vector<double> diag, vector<double> subdiag, vector<double> eigenvalue,vector<complex<double> >& V);
+void Lanczos(vector<complex<double> >& Eigenvect, double s, int num_ev, vector<complex<double> >& Z);
+void Lanczos_evolution(vector<double> & eigenvalue,vector<complex<double> >& psi, double s, int k, int num_ev, double dt);
+void Energy(vector<complex<double> > psi,double s);
+void Magnetization(vector<complex<double> > psi3);
+void productevolution(vector<complex<double> >& psi, double dt,double s);
+void params();
+void results_spectrum(double dt, int num_ev, int step);
+void results_productevolution(double dt, int step);
+void results_overlap(string alpha, double dt, int num_ev, int step, float g, vector<complex<double> >& finalgroundstate);
+int readfunc(string filename);
